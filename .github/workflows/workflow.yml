@@ -50,11 +50,11 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          script:
+          script: |
             docker stop test || true
             docker rm test || true
             docker rmi ${{ secrets.DOCKE_USERNAME }}/test:latest || true
-            docker pull ${{ secrets.DOCKE_USERNAME }}/test:latest || true
+            docker pull ${{ secrets.DOCKE_USERNAME }}/test:latest
             docker run -d -p 80:8080 \
               -e URL=jdbc:mysql://${{ secrets.RDS_URL }}/test \
               -e USERNAME=${{ secrets.RDS_USERNAME }} \
