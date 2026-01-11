@@ -56,7 +56,7 @@ jobs:
             docker rmi ${{ secrets.DOCKE_USERNAME }}/test.latest || true
             docker pull ${{ secrets.DOCKE_USERNAME }}/test.latest || true
             docker run -d -p 8080:8080 \
-              -e URL=${{ secrets.RDS_URL }} \
+              -e URL=jdbc:mysql://${{ secrets.RDS_URL }}/test \
               -e USERNAME=${{ secrets.RDS_USERNAME }} \
               -e PASSWORD=${{ secrets.RDS_PASSWORD }} \
               --name test \
