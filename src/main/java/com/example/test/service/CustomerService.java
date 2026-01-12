@@ -12,6 +12,7 @@ import java.util.List;
 public class CustomerService {
     private final CustomerRepository customerRepository;
 
+    // Get Customers list
     public List<ResponseGetCustomer> getCustomers(){
         return customerRepository.findAll()
                 .stream()
