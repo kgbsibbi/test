@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: 21
-          distribution: 'amazoncorretto'
+          distribution: 'corretto'
 
       #Gradle 권한 부여
       - name: Grant Gradle
