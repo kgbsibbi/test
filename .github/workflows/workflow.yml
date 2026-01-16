@@ -2,6 +2,9 @@ name: Deploy Test on AWS EC2
 on:
   push:
     branches: ["main"]
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: read
@@ -20,7 +23,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: 21
-          distribution: 'temurin'
+          distribution: 'amazoncorretto'
 
       #Gradle 권한 부여
       - name: Grant Gradle
